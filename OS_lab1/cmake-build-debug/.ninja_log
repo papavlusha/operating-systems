@@ -1,0 +1,9 @@
+# ninja log v5
+1	3683	1681229841478939308	CMakeFiles/OS_lab1.dir/src/main.cpp.o	6c65821ba0145ac0
+0	178	1681230699727181156	build.ninja	fb040620a35d50b7
+1	441	1681229838245208531	CMakeFiles/OS_lab1.dir/src/Reporter.cpp.o	77ee32c26513764d
+0	309	1681229838111859047	CMakeFiles/OS_lab1.dir/src/Creator.cpp.o	6668fc7330b568e7
+317	395	1681230695569896245	/home/pawel/CLionProjects/OS_lab1/objects/Creator	b2a85961f8060373
+0	317	1681230695489884437	CMakeFiles/Creator.dir/src/Creator.cpp.o	ac344df1164a115c
+0	428	1681230704877959211	CMakeFiles/Reporter.dir/src/Reporter.cpp.o	35a723e42be50088
+428	511	1681230704957971383	/home/pawel/CLionProjects/OS_lab1/objects/Reporter	768c1438ca798d5c
