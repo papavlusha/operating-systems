@@ -5,12 +5,7 @@
 
 namespace bp = boost::process;
 
-bool ExecutionCreator(std::string& file) {
-    std::cout << "Enter bin File name: ";
-    std::string number;
-    std::cin >> file;
-    std::cout << "Enter amount of quires: ";
-    std::cin >> number;
+bool ExecutionCreator(std::string& file, std::string number) {
     std::vector<std::string> creator_args = {file, number};
     bp::child creator("../objects/Creator", creator_args);
     creator.wait();
@@ -21,15 +16,7 @@ bool ExecutionCreator(std::string& file) {
     return 0;
 }
 
-bool ExecutionReporter(std::string& fileOUT) {
-    std::string fileIN, pay;
-    std::cout << "Enter bin File name: ";
-    std::cin >> fileIN;
-    std::cout << "Enter output File name: ";
-    std::cin >> fileOUT;
-    fileOUT = "../reports/" + fileOUT;
-    std::cout << "Enter pay for an hour: ";
-    std::cin >> pay;
+bool ExecutionReporter(std::string& fileOUT, std::string fileIN, std::string pay) {
     std::vector<std::string> reporter_args = {fileIN, fileOUT, pay};
     bp::child reporter("../objects/Reporter", reporter_args);
     reporter.wait();
@@ -67,15 +54,27 @@ void displayFile(const std::string& filename) {
 }
 
 int main() {
-    std::string FileBin;
-    if (ExecutionCreator(FileBin)) {
+    std::string number, FileBin;
+    std::cout << "Enter bin File name: ";
+    std::cin >> FileBin;
+    std::cout << "Enter amount of quires: ";
+    std::cin >> number;
+    if (ExecutionCreator(FileBin, number)) {
         delete_binary_file(FileBin);
         return EXIT_FAILURE;
     }
 
     displayFile(FileBin);
     std::string FileReport;
-    if (ExecutionReporter(FileReport)) {
+    std::string pay;
+    std::cout << "Enter bin File name: ";
+    std::cin >> fileIN;
+    std::cout << "Enter output File name: ";
+    std::cin >> fileOUT;
+    fileOUT = "../reports/" + fileOUT;
+    std::cout << "Enter pay for an hour: ";
+    std::cin >> pay;
+    if (ExecutionReporter(FileReport, fileIN, pay)) {
         delete_binary_file(FileBin);
         return EXIT_FAILURE;
     }
